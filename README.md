@@ -1,4 +1,4 @@
-# App Academy Friends
+# App Academy: What If?
 
 - [App Academy Friends](#app-academy-friends)
   - [Background](#background)
@@ -9,7 +9,7 @@
 
 ## Background
 
-You are Young Chris. Navigate a cruel world with some friends.
+You are Young Chris. Navigate a cruel world with some friends. 
 
 ## Functionality & MVP
 
