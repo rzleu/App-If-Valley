@@ -11,6 +11,8 @@ You are Young Chris
   
 ## Wireframes
 
+<img src="https://github.com/rzleu/redesigned-octo-barnacle/blob/assests/wireframe.png?raw=true" width="600">
+
 ## Technologies, Libraries, APIs
 
 * CSS
