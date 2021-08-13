@@ -9,7 +9,7 @@
 
 ## Background
 
-You are Young Chris. Navigate a cruel world with some friends. 
+You are Young Chris. Navigate a cruel world with some friends. In a pre-COVID world where the App Academy NY class of March 2021 is able to meet in person lies an alternate timeline of the events that could've been. With real dialogue said by the members and music produced by App Academys finest. Taking place in a desolate office, come and meet some of the friends I've made along the way.
 
 ## Functionality & MVP
 
