@@ -19,6 +19,10 @@ You are Young Chris. Navigate a cruel world with some friends. In a pre-COVID wo
 - Toggle On & Music produced by Anthony Huaung!
 - Moving Young Chris around in the world
 - Pick up items!
+
+### Bonus
+
+- Quests! Complete the quests to finish the game
   
 ## Wireframes
 
