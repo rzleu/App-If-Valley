@@ -1,0 +1,14 @@
+#background {
+  /* width: 700px;
+  height: 400px; */
+  background: rosybrown;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialogue {
+  font-family: 'SilkScreen';
+  src: url('./fonts/slkscr-webfont.woff') format('woff');
+}
