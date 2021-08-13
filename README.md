@@ -14,6 +14,8 @@ You are Young Chris. Navigate a cruel world with some friends. In a pre-COVID wo
 ## Functionality & MVP
 
 - Interact with the App Academy class of March 2021!
+  - Meet the staff!
+  - Interact with some of the students!
 - Toggle On & Music produced by Anthony Huaung!
 - Moving Young Chris around in the world
 - Pick up items!
