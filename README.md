@@ -1,6 +1,14 @@
-# Background
+- [App Academy Friends](#app-academy-friends)
+  - [Background](#background)
+  - [Functionality & MVP](#functionality--mvp)
+  - [Wireframes](#wireframes)
+  - [Technologies, Libraries, APIs](#technologies-libraries-apis)
 
-You are Young Chris
+# App Academy Friends
+
+## Background
+
+You are Young Chris. Navigate a cruel world with some friends. 
 
 ## Functionality & MVP
 
@@ -21,3 +29,7 @@ You are Young Chris
 * Canvas
 
 Implementation Timeline
+
+|Weekend | Monday | Tuesday | Wednesday | Thursday Morning |
+|---|---|---|---|---|
+|get/create sprites and have them on screen | create environment | movement and wall collision | npc dialogue | finishing touches|
