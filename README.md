@@ -1,4 +1,4 @@
-# App Academy Friends
+# App Academy: What If?
 
 - [App Academy Friends](#app-academy-friends)
   - [Background](#background)
