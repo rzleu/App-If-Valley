@@ -1,10 +1,11 @@
+# App Academy Friends
+
 - [App Academy Friends](#app-academy-friends)
   - [Background](#background)
   - [Functionality & MVP](#functionality--mvp)
   - [Wireframes](#wireframes)
   - [Technologies, Libraries, APIs](#technologies-libraries-apis)
-
-# App Academy Friends
+  - [Implementation Timeline](#implementation-timeline)
 
 ## Background
 
@@ -28,7 +29,7 @@ You are Young Chris. Navigate a cruel world with some friends.
 * Javascript
 * Canvas
 
-Implementation Timeline
+## Implementation Timeline
 
 |Weekend | Monday | Tuesday | Wednesday | Thursday Morning |
 |---|---|---|---|---|
