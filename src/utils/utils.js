@@ -8,3 +8,11 @@ export function isCollide(a, b) {
     (a.x > (b.x + b.width))
   );
 }
+
+export function scale(canvas) {
+  const scaleX = window.innerWidth / canvas.width
+  const scaleY = window.innerHeight / canvas.height
+  const scaleToFit = Math.min(scaleX, scaleY)
+  stage.style.transformOrigin = '40% 60%' //scale from top left
+  stage.style.transform = 'scale(' + scaleToFit + ')'
+}

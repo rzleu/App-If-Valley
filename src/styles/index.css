@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'SilkScreen';
+  src: url('../fonts/slkscr-webfont.woff') format('woff');
+}
+
+canvas {
+  position: absolute;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  background: url('../assests/backgrounds/static.jpg') center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+#stage {
+  width: 480px;
+  height: 320px;
+  position: absolute;
+  /* border: 2px solid black; */
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  margin: auto;
+  z-index: -1;
+}
+
+#player {
+  z-index: 3;
+}
+
+#background-layer {
+  z-index: 1;
+}
+
+.dialogue {
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  border: 2px solid whitesmoke;
+  color: #FFFFFF;
+  font-family: 'SilkScreen';
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.85;
+  width: clamp(45ch, 50%, 55ch);
+  top:45%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  padding: 5rem 2rem;
+  position: absolute;
+  z-index: 10;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: initial;
+}
+
+footer {
+  padding-bottom: 4rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left:0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 2rem;
+}
+
+i {
+  color: whitesmoke;
+  font-size: 2rem;
+}
+
+.start-game-btn {
+  margin: auto;
+  padding: .2rem 1rem;
+  position: relative;
+  top: 1.75rem;
+}
