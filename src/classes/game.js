@@ -1,11 +1,10 @@
 import Protagonist from './player'
-
+import Map1 from './map1'
 
 class Game {
   constructor(ctx) {
     // context
     this.ctx = ctx
-
     // main character
     this.character = new Protagonist(this.ctx)
 
@@ -19,20 +18,14 @@ class Game {
 
     // canvas dimensions
     this.dimensions = {
-      width: 480,
-      height: 320
+      width: 400,
+      height: 240
     };
     this.x = this.dimensions.width;
     this.y = this.dimensions.height;
 
     // pause game
     this.isPaused = true
-  }
-
-  static drawBackground(canvas, ctx,bg){
-    canvas.width = bg.naturalWidth;
-    canvas.height = bg.naturalHeight;
-    ctx.drawImage(bg,0,0)
   }
 
   startAnimate(fps) {
@@ -62,6 +55,8 @@ class Game {
   }
 
   start() {
+    this.map = new Map1()
+    this.map.draw()
     this.startAnimate(15)
   }
 
