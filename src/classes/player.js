@@ -3,10 +3,13 @@
 import youngChris from '../assests/characters/chris.png'
 
 class Player {
-  constructor(ctx) {
+  constructor(ctx, map) {
     this.ctx = ctx
+
+    // pos
     this.x = 200
     this.y = 200
+    this.map = map
 
     // sprite
     this.width = 16
@@ -47,6 +50,13 @@ class Player {
 
   // * main function to move young chris
   animate() {
+    console.log({
+      x: this.x,
+      y: this.y
+    })
+
+    console.log(this.frameX)
+    console.log(this.frameY);
     this._drawSprite(
       this.image, 
       this.width * this.frameX, 
@@ -103,26 +113,22 @@ class Player {
   // * frame animations
   playerFrame() {
     // console.log(this.frameX);
-    if (this.moving) {
-      this.frameX += 1
-    } else {
-      if (this.frameX > 17) {
-        this.frameX = 18
-        this.frameY = 1
-      }
-      else if (this.frameX > 11) {
-        this.frameX = 12
-        this.frameY = 1
-      }
-      else if (this.frameX > 5) {
-        this.frameX = 6
-        this.frameY = 1
-      }
-      else if (this.frameX < 6){
+    if (!this.moving) {
+      this.frameY = 1
+      if (this.frameX === 5) {
         this.frameX = 0
-        this.frameY = 1
+      }
+      else if (this.frameX === 11) {
+        this.frameX = 6
+      }
+      else if (this.frameX === 17) {
+        this.frameX = 12
+      }
+      else if (this.frameX >= 23){
+        this.frameX = 18
       }
     }
+    this.frameX++
   }
   
 }
