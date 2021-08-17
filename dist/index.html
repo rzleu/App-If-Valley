@@ -9,16 +9,20 @@
   <title>App Academey: What If?</title>
 </head>
 <body>
+  <h1>
+    App Academy: What if?
+  </h1>
+
   <section class="dialogue" id='dialogue'>
     <p>
       You are Young Chris. Navigate a cruel world with some friends. In a pre-COVID world where the App Academy NY class of March 2021 is able to meet in person lies an alternate timeline of the events that could've been. With real dialogue said by the members and music produced by App Academys finest. Taking place in a desolate office, come and meet some of the friends I've made along the way. 
     </p>
-    <button class='start-game-btn'> ENTER </button>
+    <button id='start-btn' class='start-game-btn'>PRESS ENTER </button>
   </section>
 
   <div id="stage">
-    <canvas id="background-layer" class="hide"></canvas>
-    <canvas id="player"></canvas>
+    <canvas id="backgroundLayer" class="hide" width='400px' height='240px'></canvas>
+    <canvas id="player" width='400px' height='240px'></canvas>
   </div>
   
   <script src='bundle.js'></script>
