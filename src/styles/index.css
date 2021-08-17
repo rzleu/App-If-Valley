@@ -3,11 +3,29 @@
   src: url('../fonts/slkscr-webfont.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Pokemon';
+  src: url('../fonts/pokemon-font.woff') format('woff');
+}
+
+h1 {
+  font-family: 'Pokemon';
+  font-size: 40px;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+  color: whitesmoke;
+  text-align: center;
+  padding-top: 1.8rem;
+}
+
 canvas {
   position: absolute;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   min-height: 100%;
   background: url('../assests/backgrounds/static.jpg') center;
@@ -16,16 +34,18 @@ body {
   overflow-x: hidden;
 }
 
+/* ===============================
+ * Canvas
+==================================*/
 #stage {
   width: 480px;
   height: 320px;
-  position: absolute;
-  /* border: 2px solid black; */
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  /* border: 2px solid whitesmoke; */
   overflow: hidden;
   margin: auto;
+  display: grid;
+  place-items: center;
   z-index: -1;
 }
 
@@ -33,18 +53,42 @@ body {
   z-index: 3;
 }
 
-#background-layer {
+#backgroundLayer {
   z-index: 1;
 }
 
+/* ==================================
+ * utils
+====================================*/
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: initial !important;
+}
+
+/* ==================================
+ * Start Menu
+===================================*/
+.start-game-btn {
+  margin: auto;
+  padding: .2rem 1rem;
+  position: relative;
+  top: 1.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 6px;
+}
 .dialogue {
+  /* font-smooth: never; */
   display: flex;
   flex-direction: column;
-  background-color: blue;
+  background: rgba(0, 0, 0, 0.45);
   border: 2px solid whitesmoke;
   color: #FFFFFF;
   font-family: 'SilkScreen';
-  font-size: 1rem;
+  font-size: 1.16rem;
   font-weight: 500;
   line-height: 1.85;
   width: clamp(45ch, 50%, 55ch);
@@ -56,14 +100,16 @@ body {
   z-index: 10;
 }
 
-.hide {
-  display: none;
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .dialogue {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
 }
 
-.show {
-  display: initial;
-}
-
+/* ================================== 
+  *  FOOTER 
+ =================================== */
 footer {
   padding-bottom: 4rem;
   position: absolute;
@@ -83,9 +129,3 @@ i {
   font-size: 2rem;
 }
 
-.start-game-btn {
-  margin: auto;
-  padding: .2rem 1rem;
-  position: relative;
-  top: 1.75rem;
-}
