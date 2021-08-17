@@ -1,5 +1,5 @@
 // collision.js
-class Collision {
+class CollisionObj {
   constructor(x,y,width,height) {
     this.x = x
     this.y = y
@@ -8,4 +8,4 @@ class Collision {
   }
 }
 
-export default Collision
+export default CollisionObj
