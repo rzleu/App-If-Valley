@@ -40,3 +40,9 @@ You are Young Chris. Navigate a cruel world with some friends. In a pre-COVID wo
 |Weekend | Monday | Tuesday | Wednesday | Thursday Morning |
 |---|---|---|---|---|
 |get/create sprites and have them on screen | create environment | movement and wall collision | npc dialogue | finishing touches|
+
+
+## Sprites and Other resources
+
+- sprites: https://limezu.itch.io/modernoffice
+- background: https://wallpaperaccess.com/8-bit-aesthetic
