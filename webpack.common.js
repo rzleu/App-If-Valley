@@ -1,5 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 
 module.exports = {
   entry: './src/index.js',
@@ -7,7 +9,11 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [new MiniCssExtractPlugin({
+    filename: "[name].css",
+    chunkFilename: "[id].css",
+  })],
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -38,4 +44,11 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
+  }
 }

@@ -44,14 +44,8 @@ class Player {
   }
 
   _getCollisionPosition(){
-    // console.log({
-    //   x: this.x,
-    //   y: this.y
-    // });
     const currX = Math.floor(this.x / 15)
     const currY = Math.floor(this.y / 14.25)
-    // console.log({currX});
-    // console.log({currY});
 
     return [currX,currY]
   }
@@ -115,8 +109,6 @@ class Player {
   // * frame animations
   playerFrame() {
     // console.log(this.moving);
-    console.log(this.frameX);
-    console.log(this.frameY);
     if (!this.moving) {
       this.frameY = 1
       if (this.frameX === 5) {
