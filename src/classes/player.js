@@ -3,13 +3,14 @@
 import youngChris from '../assests/characters/chris.png'
 
 class Player {
-  constructor(ctx, map) {
+  constructor(ctx, dimensions, collisionMap) {
+    this.dimensions = dimensions
+    this.collisionMap = collisionMap
     this.ctx = ctx
-
+    // console.log(dimensions);
     // pos
-    this.x = 200
-    this.y = 200
-    this.map = map
+    this.x = 0
+    this.y = 130
 
     // sprite
     this.width = 16
@@ -19,44 +20,44 @@ class Player {
     this.image = new Image()
     this.image.src = youngChris
     this.keypress = {}
-    this.speed = 9
+    this.SPEED = 9
     this.moving = false
-
     this._registerEvents()
   }
 
 
   // * binds event listeners
   _registerEvents() {
-    window.addEventListener("keydown", e => this.keyDown(e))
-    window.addEventListener("keyup", e => this.keyUp(e))
+    window.addEventListener("keydown", e => {
+      this.keypress[e.code] = true;
+      this.moving = true;
+    })
+    window.addEventListener("keyup", e => {
+      delete this.keypress[e.code];
+      this.moving = false;
+      this.frameX = 1
+    })
   }
-
-  keyDown(e) {
-    this.keypress[e.code] = true;
-    this.moving = true;
-
-  }
-
-  keyUp(e) {
-    delete this.keypress[e.code];
-    this.moving = false;
-  }
-
 
   _drawSprite(img, sX, sY, sW,sH,dX,dY,dW,dH) {
     this.ctx.drawImage(img, sX, sY, sW,sH,dX,dY,dW,dH)
   }
 
+  _getCollisionPosition(){
+    // console.log({
+    //   x: this.x,
+    //   y: this.y
+    // });
+    const currX = Math.floor(this.x / 15)
+    const currY = Math.floor(this.y / 14.25)
+    // console.log({currX});
+    // console.log({currY});
+
+    return [currX,currY]
+  }
+
   // * main function to move young chris
   animate() {
-    console.log({
-      x: this.x,
-      y: this.y
-    })
-
-    console.log(this.frameX)
-    console.log(this.frameY);
     this._drawSprite(
       this.image, 
       this.width * this.frameX, 
@@ -69,42 +70,43 @@ class Player {
       this.height
     )
     this.movePlayer()
-    this.playerFrame()
-    // requestAnimationFrame(() => this.animate())
+    this.playerFrame()    
   }
 
   // * moves x-u position
   movePlayer() {
-    if (this.keypress['KeyW']) {
+    const [x,y] = this._getCollisionPosition()
+
+    if (this.keypress['KeyW'] && this.y > this.SPEED && this.collisionMap[y - 1][x] === 0) {
       if (this.frameX < 6 || this.frameX > 10) {
         this.frameX = 6
         this.frameY = 2
       }
-      this.y -= this.speed
+      this.y -= this.SPEED
       this.moving = true
     }
-    if (this.keypress['KeyA']) {
+    if (this.keypress['KeyA'] && this.x > 0 && this.collisionMap[y][x - 1] === 0) {
       if (this.frameX < 12 || this.frameX > 17) {
         this.frameX = 12
         this.frameY = 2
       }
-      this.x -= this.speed
+      this.x -= this.SPEED
       this.moving = true
     }
-    if (this.keypress['KeyD']) {
+    if (this.keypress['KeyD'] && (this.x < this.dimensions.width - this.width * 1.75) && this.collisionMap[y][x + 1] === 0) {
       if (this.frameX > 5) {
         this.frameX = 0
         this.frameY = 2
       }
-      this.x += this.speed
+      this.x += this.SPEED
       this.moving = true
     }
-    if (this.keypress['KeyS']) {
+    if (this.keypress['KeyS'] && (this.y < this.dimensions.height - Math.floor(this.height * 1.5)) && this.collisionMap[y + 1][x] === 0) {
       if (this.frameX < 18 || this.frameX >= 23) {
         this.frameX = 18
         this.frameY = 2
       }
-      this.y += this.speed
+      this.y += this.SPEED
       this.moving = true
     }
   }
@@ -112,7 +114,9 @@ class Player {
   // * dont ask about random numbers. it just works
   // * frame animations
   playerFrame() {
-    // console.log(this.frameX);
+    // console.log(this.moving);
+    console.log(this.frameX);
+    console.log(this.frameY);
     if (!this.moving) {
       this.frameY = 1
       if (this.frameX === 5) {
@@ -128,7 +132,10 @@ class Player {
         this.frameX = 18
       }
     }
-    this.frameX++
+    if (this.frameX > 22) {
+      this.frameX = 0
+    }
+    this.frameX++ // TODO: this bugs out when holding not dir keys and running into walls
   }
   
 }

@@ -1,13 +1,10 @@
 import Protagonist from './player'
-import Map1 from './map1'
-
+import Map from './map1'
+import { scale } from '../utils/utils'
 class Game {
-  constructor(ctx) {
-    // context
-    this.ctx = ctx
-    // main character
-    this.character = new Protagonist(this.ctx)
-
+  constructor() {
+    this.map = new Map()
+    
     // animations
     this.fpsInterval = "";
     this.then = "";
@@ -16,16 +13,16 @@ class Game {
     this.then = "";
     this.elapsed = "";
 
-    // canvas dimensions
-    this.dimensions = {
-      width: 400,
-      height: 240
-    };
-    this.x = this.dimensions.width;
-    this.y = this.dimensions.height;
-
     // pause game
     this.isPaused = true
+
+    // player canvas & context
+    this.canvas = document.getElementById('player')
+    this.ctx = this.canvas.getContext('2d')
+
+    console.log(this.dimensions);
+    
+    // console.log(this.dimensions);
   }
 
   startAnimate(fps) {
@@ -54,12 +51,27 @@ class Game {
     this.isPaused = !this.isPaused
   }
 
-  start() {
-    this.map = new Map1()
+  play() {
+    scale(this.canvas)
+    console.log(this.map.getDimensions());
+    this._setDimensions()
+    this._setPlayer()
     this.map.draw()
+    
     this.startAnimate(15)
   }
 
+  _setDimensions() {
+    this.dimensions = this.map.getDimensions()
+    // console.log(width);
+    this.canvas.width = this.dimensions.width
+    this.canvas.height = this.dimensions.height
+    
+  }
+
+  _setPlayer(){
+    this.character = new Protagonist(this.ctx, this.map.getDimensions(), Map.getCollisionMap())
+  }
 }
 
 export default Game;

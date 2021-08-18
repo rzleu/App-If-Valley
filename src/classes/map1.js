@@ -4,39 +4,45 @@ import office1 from '../assests/backgrounds/Office_Design_1.png'
 
 class Map1 {
   constructor(player) {
-    this.setContext()
-    this.collideMap = this.collisionMap()
-    this.image = new Image()
-    this.image.src = office1
-    this.canvas.width = this.image.naturalWidth
-    this.canvas.height = this.image.naturalHeight
-  }
-
-  setContext() {
     this.canvas = document.getElementById('backgroundLayer')
     this.ctx = this.canvas.getContext('2d')
+    this.collideMap = this.constructor.getCollisionMap()
+    this.image = new Image()
+    this.image.src = office1
+    this.draw()
   }
 
-  collisionMap() {
-    return [
-      [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
-      [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4],
-      [4,4,4,4,4,3,2,1,1,1,1,1,4,4,4,4,4],
-      [4,4,4,2,2,2,2,0,0,0,0,4,4,4,4,4,4],
-      [4,4,4,2,0,0,0,0,4,4,4,4,4,4,4,4,4],
-      [4,4,4,4,2,4,4,3,4,4,4,4,4,4,4,4,4],
-      [4,4,4,4,2,4,4,4,4,4,4,4,4,4,4,4,4],
-      [2,2,1,1,0,2,4,4,4,4,4,4,4,4,4,4,4],
-      [1,0,0,0,0,1,4,4,4,4,4,4,4,4,4,4,4],
-      [1,0,0,0,0,0,2,2,2,2,2,2,4,4,4,4,4],
-      [2,1,1,1,1,1,4,4,4,4,4,3,4,4,4,4,4],
-      [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
+  static getCollisionMap() {
+    // last element in array is 7x16
+    return [ //! 9x12
+      // [1,1,1,1,1,1,1,1,1,1,1,1],
+      // [1,1,1,1,1,1,1,1,1,1,1,1],
+      [1,1,1,1,1,0,0,0,0,0,0,0],
+      [1,1,1,1,1,1,1,0,0,0,0,0],
+      [1,1,1,0,0,0,0,0,0,0,0,0],
+      [1,1,1,0,0,0,0,0,1,1,1,1],
+      [1,1,1,1,0,1,1,1,1,1,1,1],
+      [1,1,1,1,0,0,1,1,1,1,1,1],
+      [0,0,0,0,0,0,1,1,1,1,1,1],
+      [0,0,0,0,0,0,1,1,1,1,1,1],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,1,1,1,1,1,0],
+      [0,0,0,0,0,0,0,0,0,0,0,0]// bottom row is 5x16
     ]
   }
 
-  draw(){
-    this.image.onload = (e) => {
+  draw() {
+    this.image.onload = () => {
+      this.canvas.width = this.image.naturalWidth
+      this.canvas.height = this.image.naturalHeight
       this.ctx.drawImage(this.image, 0, 0)
+    }
+  }
+
+  getDimensions(){
+    return {
+      width: this.image.naturalWidth,
+      height: this.image.naturalHeight
     }
   }
 }

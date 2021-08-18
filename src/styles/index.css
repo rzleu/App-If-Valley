@@ -20,6 +20,8 @@ h1 {
 
 canvas {
   position: absolute;
+  min-width: 150px;
+  min-height: 200px;
 }
 
 body {
@@ -38,8 +40,8 @@ body {
  * Canvas
 ==================================*/
 #stage {
-  width: 480px;
-  height: 320px;
+  width: 400px;
+  height: 240px;
   position: relative;
   /* border: 2px solid whitesmoke; */
   overflow: hidden;
@@ -47,6 +49,7 @@ body {
   display: grid;
   place-items: center;
   z-index: -1;
+  bottom: 50px;
 }
 
 #player {

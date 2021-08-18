@@ -35,9 +35,11 @@ export function playList() {
 
   const playListSongs = [gabbySong, doYouSong, wordSong, evanSong]
 
-  playListSongs[0].play()
-  playListSongs[0].getSound().addEventListener('ended', () => {
-    playListSongs.push(playListSongs.shift())
-    playListSongs[0].play()
+  const firstSong = playListSongs.shift()
+  firstSong.play()
+  firstSong.getSound().addEventListener('ended', () => {
+    const next = playListSongs.shift()
+    playListSongs.push(next)
+    next.play()
   })
 }
