@@ -46,3 +46,4 @@ You are Young Chris. Navigate a cruel world with some friends. In a pre-COVID wo
 
 - sprites: https://limezu.itch.io/modernoffice
 - background: https://wallpaperaccess.com/8-bit-aesthetic
+- font: Jason Aleksandr Kottke, Pokemon
